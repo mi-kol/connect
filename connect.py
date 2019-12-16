@@ -14,7 +14,7 @@ eventlet.monkey_patch()
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'ZLiqlknGV3MfIXyD'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://doadmin:qpj8u2fqgf2h1woz@menno-connect-db-do-user-3819703-0.db.ondigitalocean.com:25060/defaultdb?sslmode=require'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'URI-PLACEHOLDER'
 
 socketio = SocketIO(app, async_mode='eventlet')
 db = SQLAlchemy(app)
