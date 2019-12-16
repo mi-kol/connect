@@ -15,7 +15,7 @@ body {
    -moz-perspective: 800px;
      -o-perspective: 800px;
         perspective: 800px;
-        margin-bottom: 30px;
+        /* margin-bottom: 30px; */
 }
 /* flip the pane when hovered */
 .card-container:not(.manual-flip):hover .card,
@@ -95,7 +95,7 @@ h2 {
 }
 .card-container, .front, .back {
 	width: 400px;
-	height: 90vh;
+	height: 100vh;
 	border-radius: 4px;
 }
 .card .cover{

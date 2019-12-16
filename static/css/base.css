@@ -71,3 +71,40 @@ img.side-avi {
     height: 100px;
 }
 
+@media (pointer:coarse) {
+    aside {
+        position: absolute;
+        height: auto;
+        top:0px;
+        border: 0;
+        border-radius: 0 0 40% 0;
+        width: 100px;
+        height: 100px;
+    }
+
+
+    main {
+        left: 0px;
+    }
+
+    .buttongrid {
+        display:none;
+    }
+
+    .side-time {
+        display: none;
+    }
+
+    .username {
+        display: none;
+    }
+
+    .rep-dropdown {
+        display: none;
+    }
+
+    #profile-panel {
+        padding: 8px;
+    }
+
+}

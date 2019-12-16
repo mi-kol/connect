@@ -1,7 +1,7 @@
 .interaction-bar {
     display: flex;
     align-items: center;
-    margin: 0 16px 16px 16px;
+    margin: 8px 16px 32px 16px;
 }
 
 .flex-spacer {
@@ -9,5 +9,28 @@
 }
 
 p.text-center {
-    overflow: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.deck {
+    height: 100%;
+}
+
+@media (pointer:coarse) {
+    p.text-center {
+        overflow: hidden;
+    }
+
+    .card-container, .front, .back {
+        width: 100vw;
+    }
+
+    h2 {
+        font-size: 4vw;
+        text-align: right;
+        left: 80px;
+        margin-right: 20px;
+        position: absolute;
+    }
 }
