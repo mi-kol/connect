@@ -15,6 +15,9 @@ p.text-center {
 
 .deck {
     height: 100%;
+    display: flex;
+    flex-direction: row;
+    width: 6000%;
 }
 
 @media (pointer:coarse) {

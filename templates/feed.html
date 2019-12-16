@@ -6,6 +6,7 @@
 
 {% block content %}
 <div class="deck">
+    {% for n in range(5) %}
     <div class="card-container manual-flip">
         <div class="card" onclick="rotateCard(this)">
             <div class="front">
@@ -89,6 +90,7 @@
             </div> <!-- end back panel -->
         </div> <!-- end card -->
     </div> <!-- end card-container -->
+    {% endfor %}
 </div>
 {% endblock %}
 
