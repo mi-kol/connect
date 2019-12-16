@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+        <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+        {% block style %}{% endblock %}
+        <title>Connect</title>
+    </head>
+    <body>
+        <!-- dont forget mobile optimization -->
+        <aside id="profile-panel">
+            <div class="side-pfp">
+                <img class="side-avi" src="https://uinames.com/api/photos/female/9.jpg" alt="profile picture for mikol">
+            </div>
+            <span class="side-time">
+                <strong>18</strong> minutes today
+            </span>
+            <span class="username">
+                Andrea Gardner
+            </span>
+            <div class="rep-dropdown">
+                <select class="custom-select">
+                    <option value="self">@AndreaGardner</option>
+                    <option value="church">@CollegeMennoniteChurch</option>
+                    <option value="org">@EverenceFinancial</option>
+                    <option value="conference">@IndyMichiConference</option>
+                    <option value="denom">@MCUSA</option>
+                </select>
+            </div>
+            <div class="spacer">
+
+            </div>
+            
+            <div class="2x2buttons">
+                <div class="row">
+                    <span class="box">
+                        <i class="fas fa-user"></i>
+                    </span>
+                    <span class="box">
+                        <i class="fas fa-bullhorn"></i>
+                    </span>
+                </div>
+                <div class="row">
+                    <span class="box">
+                        <i class="fas fa-envelope"></i>
+                    </span>
+                    <span class="box">
+                        <i class="fas fa-users"></i>
+                    </span>
+                </div>
+            </div>
+        </aside>
+        <main id="content">
+            {% block content %}
+            {% endblock %}
+        </main>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/38c5270245.js" crossorigin="anonymous"></script>
+        
+        {% block scripts %}
+        {% endblock %}
+    </body>
+</html>
