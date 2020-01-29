@@ -1,0 +1,20 @@
+.card-container, .front, .back, .card {
+    width: calc(100vw - 204px);
+}
+
+.cover {
+    text-align: center;
+}
+
+.cover input {
+    height: 100%;
+    width: 75%;
+    font-size: 36px;
+    text-align: center;
+}
+
+#editor {
+    margin-bottom: 12px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}

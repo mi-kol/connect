@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, g, session
 from flask_socketio import SocketIO, emit
 from flask_wtf import FlaskForm
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 from wtforms import StringField, PasswordField, BooleanField, SubmitField
 from wtforms.validators import DataRequired
 import os
@@ -18,6 +19,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://doadmin:qpj8u2fqgf2h1woz@m
 
 socketio = SocketIO(app, async_mode='eventlet')
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
 class User(db.Model):
     __tablename__ = 'user'
@@ -37,6 +39,7 @@ class Post(db.Model):
     author_id = db.Column(db.Integer, db.ForeignKey('user.user_id'))
     timestamp = db.Column(db.TIMESTAMP)
     content = db.Column(db.Text)
+    title = db.Column(db.Text)
 
     def __repr__(self):
         return '<Post: %r>' % self.content
@@ -84,7 +87,6 @@ def login():
             session['user_id'] = newUser.user_id
             return redirect('/')
         else:
-            print("made it this far", file=sys.stderr)
             if handle and password:
                 existing_user = User.query.filter(User.username == handle).first()
                 if existing_user:
@@ -98,6 +100,28 @@ def login():
                     return redirect('/')
     else:    
         return render_template('splash.html')
+
+@app.route('/posts')
+def posts():
+    return Post.query.first().content
+
+@app.route('/new', methods=['GET', 'POST'])
+def new():
+    if request.method == 'POST':
+        print("[INFO] Received POST post from '/'.", file=sys.stderr)
+        title = request.form['title']
+        body = request.form['text']
+        user = session.get('user_id')
+        newPost = Post(author_id=user,
+                       content=body,
+                       title=title)
+        db.session.add(newPost)
+        db.session.commit()
+        return redirect('/')
+    else:
+        if session.get('user_id') is None:
+            return redirect('/auth')
+        return render_template('new.html')
 
 if __name__ == "__main__":
     socketio.run(app, debug=True, host='0.0.0.0', port=80)
