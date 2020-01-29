@@ -61,9 +61,14 @@ def load_logged_in_user():
 @app.route('/')
 def index():
     print(session.get('user_id'))
+    pureposts = Post.query.all()
+    posts = []
     if session.get('user_id') is None:
         return redirect('/auth')
-    return render_template('feed.html')
+    for post in pureposts:
+        author = User.query.filter(User.user_id == post.author_id).first()
+        posts.append({"title": post.title, "content": post.content, "author": author.username})
+    return render_template('feed.html', posts=posts)
 
 @app.route('/auth', methods=['GET', 'POST'])
 def login():
@@ -104,6 +109,12 @@ def login():
 @app.route('/posts')
 def posts():
     return Post.query.first().content
+
+@app.route('/wipeposts')
+def wipeposts():
+    Post.query.delete()
+    db.session.commit()
+    return "Posts deleted."
 
 @app.route('/new', methods=['GET', 'POST'])
 def new():

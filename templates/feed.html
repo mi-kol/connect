@@ -6,37 +6,28 @@
 
 {% block content %}
 <div class="deck">
-    {% for n in range(5) %}
+    {% for post in posts %}
     <div class="card-container manual-flip">
         <div class="card" onclick="rotateCard(this)">
             <div class="front">
                 <div class="cover">
-                    <h2>A Dissent of Modern Theological Paradigms</h2>
+		<h2>{{ post["title"] }}</h2>
                 </div>
                 
                 
                 <div class="content">
                     <div class="main">
                         <p class="text-center">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Fames ac turpis egestas maecenas pharetra convallis posuere. Ac placerat vestibulum lectus mauris ultrices eros. Sagittis vitae et leo duis. Id donec ultrices tincidunt arcu non sodales. Natoque penatibus et magnis dis parturient. Id faucibus nisl tincidunt eget nullam non nisi est. Facilisis sed odio morbi quis commodo odio aenean sed adipiscing. Fames ac turpis egestas sed tempus urna et pharetra. Massa sapien faucibus et molestie. Donec pretium vulputate sapien nec sagittis aliquam malesuada. Vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci. Nisi porta lorem mollis aliquam ut porttitor leo. Blandit massa enim nec dui nunc mattis. Et molestie ac feugiat sed lectus vestibulum mattis ullamcorper velit. Fermentum et sollicitudin ac orci. Nisi scelerisque eu ultrices vitae auctor eu augue ut lectus.
-
-                                Purus viverra accumsan in nisl nisi scelerisque eu ultrices. Tellus at urna condimentum mattis pellentesque. Vel fringilla est ullamcorper eget nulla facilisi etiam dignissim. Pretium fusce id velit ut tortor pretium viverra. Orci ac auctor augue mauris augue neque gravida in fermentum. Mi sit amet mauris commodo quis imperdiet. Commodo nulla facilisi nullam vehicula ipsum a arcu cursus vitae. Tincidunt dui ut ornare lectus sit amet. Placerat vestibulum lectus mauris ultrices eros. Risus nullam eget felis eget. Eget mauris pharetra et ultrices neque ornare aenean. Morbi tristique senectus et netus et malesuada. Tristique sollicitudin nibh sit amet. Aliquet eget sit amet tellus cras adipiscing. Mauris pharetra et ultrices neque ornare aenean euismod. Augue neque gravida in fermentum et sollicitudin ac orci. In pellentesque massa placerat duis ultricies lacus sed. Ac turpis egestas maecenas pharetra convallis posuere morbi. Quis varius quam quisque id.
-                                
-                                Tortor consequat id porta nibh. Nisi scelerisque eu ultrices vitae auctor eu augue ut. Nisi vitae suscipit tellus mauris a diam maecenas sed enim. Aliquam id diam maecenas ultricies mi eget mauris pharetra et. Magna sit amet purus gravida quis blandit turpis. A iaculis at erat pellentesque adipiscing commodo elit at. Nulla facilisi morbi tempus iaculis urna id volutpat lacus. Lobortis mattis aliquam faucibus purus in massa tempor nec feugiat. Suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Dignissim cras tincidunt lobortis feugiat vivamus at augue. Aliquet enim tortor at auctor urna nunc id. Eget velit aliquet sagittis id consectetur purus ut. Curabitur gravida arcu ac tortor. Mauris vitae ultricies leo integer malesuada nunc vel risus commodo. Facilisi morbi tempus iaculis urna id volutpat. Sed adipiscing diam donec adipiscing tristique risus.
-                                
-                                Pellentesque adipiscing commodo elit at imperdiet dui. Ipsum a arcu cursus vitae congue mauris. Velit ut tortor pretium viverra suspendisse potenti nullam ac tortor. Mauris nunc congue nisi vitae. Pellentesque adipiscing commodo elit at imperdiet dui accumsan sit. Porta non pulvinar neque laoreet suspendisse interdum consectetur. Tincidunt lobortis feugiat vivamus at augue eget arcu dictum. Semper viverra nam libero justo laoreet sit amet. Purus non enim praesent elementum facilisis leo vel fringilla est. At risus viverra adipiscing at in tellus. Blandit libero volutpat sed cras ornare arcu dui vivamus. Id semper risus in hendrerit gravida rutrum quisque. Porttitor rhoncus dolor purus non enim praesent elementum. Sit amet est placerat in egestas erat imperdiet sed. Dictum varius duis at consectetur lorem donec massa sapien. Sit amet mauris commodo quis imperdiet massa. Duis ultricies lacus sed turpis tincidunt id aliquet risus. Pulvinar neque laoreet suspendisse interdum consectetur libero. Id semper risus in hendrerit gravida rutrum quisque non tellus.
-                                
-                                A iaculis at erat pellentesque adipiscing commodo elit at. Amet tellus cras adipiscing enim eu turpis egestas pretium aenean. Aliquet enim tortor at auctor urna nunc id cursus metus. Semper viverra nam libero justo laoreet sit amet cursus sit. Aliquet lectus proin nibh nisl condimentum id venenatis a. Pharetra diam sit amet nisl suscipit adipiscing bibendum est ultricies. Egestas purus viverra accumsan in nisl nisi scelerisque eu. Cras semper auctor neque vitae tempus quam pellentesque nec. Arcu dui vivamus arcu felis bibendum. In metus vulputate eu scelerisque felis imperdiet proin fermentum leo. Ante metus dictum at tempor commodo ullamcorper a lacus vestibulum. Nullam non nisi est sit amet. Mauris ultrices eros in cursus turpis massa. Vivamus at augue eget arcu dictum varius. Velit sed ullamcorper morbi tincidunt ornare. Est velit egestas dui id ornare. Ornare arcu odio ut sem nulla pharetra diam sit. Mi proin sed libero enim sed faucibus. Integer quis auctor elit sed.
                         </p>
                         <div class="flex-spacer">
-
+				{{ post["content"]|safe }}
                         </div>
                         <div class="interaction-bar">
                             <div class="likes" style="font-size: 56px;" onclick="alert('hello')">
                                 <i class="fas fa-heart"></i>
                             </div>
                             <div class="user">
-                                <img class="img-circle" src="https://i.pravatar.cc/300?img=68"/>
+                                <img class="img-circle" src="https://i.pravatar.cc/300?{{ post.author }}"/>
                             </div>
                             <div class="comments" style="font-size: 56px;">
                                 <i class="fas fa-comments" ></i>
@@ -81,7 +72,7 @@
                             <i class="fas fa-heart"></i>
                         </div>
                         <div class="user">
-                            <img class="img-circle" src="https://i.pravatar.cc/300?img=68"/>
+				<img class="img-circle" src="https://i.pravatar.cc/300?{{ post.author }}"/>
                         </div>
                         <div class="comments" style="font-size: 56px;">
                             <i class="fas fa-comments" ></i>

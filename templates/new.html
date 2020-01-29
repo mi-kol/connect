@@ -67,13 +67,17 @@ function rotateCard(btn){
     
 
     $("#post").on("submit",function(){
-    $("#hiddenArea").val($('#editor').innerHTML);
-    })
+	    $("#hiddenArea").val(quill.container.firstChild.innerHTML);
+    });
   </script>
 
 <script>
 
 document.querySelector('#editor').onclick = function(event) {
+    event.stopPropagation();
+}
+
+document.querySelector('.ql-toolbar').onclick = function(event) {
     event.stopPropagation();
 }
 
